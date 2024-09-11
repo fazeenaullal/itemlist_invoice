@@ -153,7 +153,7 @@ class _NewInvoiceState extends State<NewInvoice> {
     bool allValid = true;
 
     contactForms
-        .forEach((element) => allValid = (allValid && element!.isValidated()));
+        .forEach((element) => allValid = (allValid && element.isValidated()));
 
     if (allValid) {
 
@@ -170,8 +170,8 @@ class _NewInvoiceState extends State<NewInvoice> {
       for (int i = 0; i < names.length; i++)
         listItems .add({
           "name": names.toList()[i],
-          "price": int.parse(numbers.toList()[i]),
-          "quantity": int.parse(mails.toList()[i])
+          "price": numbers.toList()[i],
+          "quantity":mails.toList()[i]
         });
 //       List <ContactModel> data;
 //       for (int i = 0; i < listItems.length; i++){
@@ -194,6 +194,7 @@ class _NewInvoiceState extends State<NewInvoice> {
 
       })
       .whenComplete(() {
+
               Navigator.pushReplacement(
                   context, MaterialPageRoute(builder: (_) => Home()));
             });

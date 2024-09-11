@@ -61,7 +61,7 @@ class _ContactFormItemWidgetState extends State<ContactFormItemWidget> {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Text(
-                      "Contact - ${widget.index}",
+                      "Item - ${widget.index}",
                       style: TextStyle(
                           fontWeight: FontWeight.bold,
                           fontSize: 16,
@@ -101,7 +101,7 @@ class _ContactFormItemWidgetState extends State<ContactFormItemWidget> {
                   // initialValue: widget.contactModel.item,
                   onChanged: (value) => widget.contactModel.item = value,
                   onSaved: (value) => widget.contactModel.item = value!,
-                  validator: (value) => value!.length > 3 ? null : "Enter Name",
+                  validator: (value) => value!.length > 0 ? null : "Enter Name",
                   decoration: InputDecoration(
                     contentPadding: EdgeInsets.symmetric(horizontal: 12),
                     border: OutlineInputBorder(),
@@ -114,10 +114,10 @@ class _ContactFormItemWidgetState extends State<ContactFormItemWidget> {
                 ),
                 TextFormField(
                   controller: widget._contactController,
-                  onChanged: (value) => widget.contactModel.quantity = value as int,
-                  onSaved: (value) => widget.contactModel.quantity = value! as int,
+                  onChanged: (value) => widget.contactModel.quantity = int.parse(value),
+                  onSaved: (value) => widget.contactModel.quantity =int.parse(value!),
                   validator: (value) =>
-                  value!.length > 3 ? null : "Number is Not Valid",
+                  value!.length > 0 ? null : "Enter the quantity",
                   decoration: InputDecoration(
                     contentPadding: EdgeInsets.symmetric(horizontal: 12),
                     border: OutlineInputBorder(),
@@ -130,8 +130,10 @@ class _ContactFormItemWidgetState extends State<ContactFormItemWidget> {
                 ),
                 TextFormField(
                   controller: widget._emailController,
-                  onChanged: (value) => widget.contactModel.price= value as int,
-                  onSaved: (value) => widget.contactModel.price = value! as int,
+                  onChanged: (value) => widget.contactModel.price= int.parse(value),
+                  onSaved: (value) => widget.contactModel.price = int.parse(value!),
+                  validator: (value) =>
+                  value!.length > 0 ? null : "Enter the price",
                   decoration: InputDecoration(
                     contentPadding: EdgeInsets.symmetric(horizontal: 12),
                     border: OutlineInputBorder(),

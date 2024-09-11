@@ -127,7 +127,7 @@ var itemname;
     ];
     final headers = [
       'Description',
-      'Date',
+
       'Quantity',
       'Unit Price',
       'Total'
@@ -222,11 +222,11 @@ var itemname;
 
       return [
         item.item,
-        Utils.formatDate(DateTime.now()),
+        // Utils.formatDate(DateTime.now()),
          '${item.quantity}',
-         '\$ ${item.price}',
+         ' ${item.price}',
 
-        '\$ ${total.toStringAsFixed(2)}',
+        ' ${total}',
       ];
     }).toList();
 
