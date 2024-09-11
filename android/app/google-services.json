@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "127269749046",
+    "project_id": "classroom-f539c",
+    "storage_bucket": "classroom-f539c.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:127269749046:android:be35dd9b9de5d5ec867397",
+        "android_client_info": {
+          "package_name": "com.example.practice_in"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyALtdZvtopH73jcDS3jdtmNRIuLfkmN850"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
