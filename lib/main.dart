@@ -3,6 +3,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:practice_in/service/database_service.dart';
 
 // import 'addnote.dart';
 import 'editnote.dart';
@@ -41,6 +42,7 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
+  DatabaseService service = DatabaseService();
   final Stream<QuerySnapshot> _usersStream =
   FirebaseFirestore.instance.collection('report').snapshots();
   @override
@@ -80,11 +82,9 @@ class _HomeState extends State<Home> {
               itemCount: snapshot.data!.docs.length,
               itemBuilder: (_, index) {
                 return Dismissible(
-                  onDismissed: (direction) {
+                  onDismissed: (direction) async {
+await service.deleteCustomer(snapshot.data!.docs[index].id.toString());
 
-                    setState(() {
-                      snapshot.data!.docs.removeAt(index);
-                    });
                   },
                   key: UniqueKey(),
                   background: Container(
@@ -131,7 +131,9 @@ class _HomeState extends State<Home> {
                               ),
                             ),
                             title: Text(
-                              snapshot.data!.docChanges[index].doc['name'],
+                              // snapshot.data!.docChanges[index].doc['name'],
+                              snapshot.data!.docs[index].get('name'),
+                              
                               style: TextStyle(
                                 fontSize: 20,
                               ),
